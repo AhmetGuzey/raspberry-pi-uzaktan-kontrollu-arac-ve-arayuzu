@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <!-- %30 Guideline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <!-- %70 Guideline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <!-- Left Bar -->
+    <ImageView
+        android:id="@+id/left_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:alpha="0.9"
+        android:scaleType="fitXY"
+        android:src="@drawable/toolbar_left_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- TakTak Logo -->
+    <ImageView
+        android:id="@+id/taktak_logo"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/toolbar_taktak_logo"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Right Bar -->
+    <ImageView
+        android:id="@+id/right_bar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:alpha="0.9"
+        android:scaleType="fitXY"
+        android:src="@drawable/toolbar_right_bar"
+        app:layout_constraintStart_toStartOf="@id/guideline_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <!-- LEFT Icon Row -->
+    <LinearLayout
+        android:id="@+id/menu_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        app:layout_constraintStart_toStartOf="@id/left_bar"
+        app:layout_constraintTop_toTopOf="@id/left_bar"
+        android:gravity="center_vertical">
+
+
+
+
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="30dp" android:layout_marginStart="10dp">
+            <ImageButton app:tint="@android:color/white" android:id="@+id/sound_button" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_sound_icon" android:background="@android:color/transparent" android:contentDescription="Speaker Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="30dp">
+            <ImageButton app:tint="@android:color/white" android:id="@+id/lights_button" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_lights_icon" android:background="@android:color/transparent" android:contentDescription="Lights Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="30dp">
+            <ImageButton app:tint="@android:color/white" android:id="@+id/record_button" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_recording_on_icon" android:background="@android:color/transparent" android:contentDescription="Record Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp">
+            <ImageButton app:tint="@android:color/white" android:id="@+id/screenshot_button" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_screen_shot_icon" android:background="@android:color/transparent" android:contentDescription="ScreenShot Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- RIGHT Icon Row -->
+    <LinearLayout
+        android:id="@+id/menu_icons_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="@id/right_bar"
+        app:layout_constraintTop_toTopOf="@id/right_bar"
+        android:gravity="center_vertical">
+
+        <!-- Pil Durumu Text -->
+        <TextView
+            android:id="@+id/battery_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tablet: %100\nRobot: %100"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:lineSpacingExtra="2dp"
+            android:layout_marginEnd="15dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="40dp">
+            <ImageButton app:tint="@android:color/white" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_battery_icon" android:background="@android:color/transparent" android:contentDescription="Battery Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp">
+            <ImageButton app:tint="@android:color/white" android:id="@+id/power_button" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/toolbar_power_icon" android:background="@android:color/transparent" android:contentDescription="Power Butonu" android:layout_gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

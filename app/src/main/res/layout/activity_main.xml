@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="false">
+
+    <!-- ─── RTSP Kamera İçeriği (Arka Plan) ─────────────────────────────── -->
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ─── Üst Toolbar ──────────────────────────────────────────────────── -->
+    <include
+        android:id="@+id/custom_toolbar"
+        layout="@layout/tool_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ─── Dinamik Menü Konteyneri ──────────────────────────────────────── -->
+    <FrameLayout
+        android:id="@+id/dynamic_menu_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:elevation="12dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ─── Engel Uyarı Metni ────────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/obstacle_warning_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#80000000"
+        android:elevation="14dp"
+        android:layout_marginTop="200dp"
+        android:padding="16dp"
+        android:text="⚠️ ENGEL TESPİT EDİLDİ"
+        android:textColor="#FF0000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- ─── JOYSTICK ALANI (Sağ Alt Köşe) ─────────────────────────────── -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <!--
+        Yarı saydam arka plan kartı.
+        Renk: projenin #506B70 paleti ile uyumlu koyu deniz mavisi.
+    -->
+    <FrameLayout
+        android:id="@+id/joystick_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/joystick_card_bg"
+        android:elevation="11dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Joystick etiketi -->
+            <TextView
+                android:id="@+id/joystick_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:letterSpacing="0.15"
+                android:text="HAREKET"
+                android:textColor="#90B4B8"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+
+            <!-- Joystick bileşeni -->
+            <com.muhammedrizaguler.bitirmeprojesi.JoystickView
+                android:id="@+id/joystick_view"
+                android:layout_width="275dp"
+                android:layout_height="275dp" />
+
+            <!-- Anlık koordinat göstergesi -->
+            <TextView
+                android:id="@+id/joystick_coords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="monospace"
+                android:text="X: 0.00  Y: 0.00"
+                android:textColor="#70939A"
+                android:textSize="9sp" />
+
+            <!-- Bağlantı durum göstergesi -->
+            <TextView
+                android:id="@+id/joystick_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="monospace"
+                android:text="● Bağlanıyor…"
+                android:textColor="#506B70"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+    </FrameLayout>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
