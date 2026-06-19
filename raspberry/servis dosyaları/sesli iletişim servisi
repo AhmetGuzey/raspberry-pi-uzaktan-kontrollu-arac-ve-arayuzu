@@ -1,0 +1,16 @@
+[Unit]
+Description=Ses Python Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/taktak/Desktop/receiver_sender.py
+WorkingDirectory=/home/taktak/Desktop/
+Restart=always
+RestartSec=3
+User=taktak
+
+StandardOutput=append:/var/log/ses.log
+StandardError=append:/var/log/ses_error.log
+
+[Install]
+WantedBy=multi-user.target

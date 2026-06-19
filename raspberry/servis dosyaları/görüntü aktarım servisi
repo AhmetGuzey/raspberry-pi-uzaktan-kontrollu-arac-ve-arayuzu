@@ -1,0 +1,16 @@
+[Unit]
+Description=RTSP Server Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/taktak/Desktop/rtsp_server.py
+WorkingDirectory=/home/taktak/Desktop
+Restart=always
+RestartSec=3
+User=taktak
+
+StandardOutput=append:/var/log/rtsp_server.log
+StandardError=append:/var/log/rtsp_server_error.log
+
+[Install]
+WantedBy=multi-user.target
